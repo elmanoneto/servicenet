@@ -2,18 +2,12 @@ app.controller('UserCtrl', [ '$scope', 'User', function($scope, User) {
 
   $scope.users = User.all();
 
-  $scope.loadUsers = function () {
+  var loadUsers = function () {
   	$scope.users = User.all();
   }
 
 
   $scope.openModal = function (idx) {
-  	$scope.user.idx = '';
-  	$scope.user.nome = '';
-  	$scope.user.email = '';
-  	$scope.user.nascimento = '';
-  	$scope.user.senha = '';
-
   	$('#myModal').modal('show');
   }
 
@@ -53,7 +47,7 @@ app.controller('UserCtrl', [ '$scope', 'User', function($scope, User) {
   	User.create(user);
   	$('#myModal').modal('hide');
 
-  	$scope.loadUsers();
+  	setTimeout(function() { loadUsers() }, 100);
   }
 
   $scope.editUser = function () {
@@ -76,7 +70,7 @@ app.controller('UserCtrl', [ '$scope', 'User', function($scope, User) {
 
   	$('#modalEdit').modal('hide');
 
-  	$scope.loadUsers();
+  	setTimeout(function() { loadUsers() }, 100);
   }
 
 }]);
