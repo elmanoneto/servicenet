@@ -35,7 +35,7 @@
             <td>{{user.senha}}</td>
             <td>
             	<div class="btn-group">
-				  <button type="button" class="btn btn-warning" ng-click="remove()"> <span class="glyphicon glyphicon-pencil"></span></button>
+				  <button type="button" class="btn btn-warning" ng-click="modalEdit(user.id, $index)"> <span class="glyphicon glyphicon-pencil"></span></button>
 				</div>
             </td>
             <td>
@@ -51,6 +51,8 @@
 	<div class="btn-group" id="bt">
 	  <button type="button" class="btn btn-primary" ng-click="openModal()"> <span class="glyphicon glyphicon-user"></span> Cadastrar usuário</button>
 	</div>
+
+<!-- MODAL CADASTRAR -->
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -78,6 +80,40 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Fechar</button>
         <button type="button" class="btn btn-primary" ng-click="registerUser()"><span class="glyphicon glyphicon-plus"></span> Cadastrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL EDITAR -->
+
+<div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Editar usuário</h4>
+      </div>
+      <div class="modal-body">
+        <form role="form">
+		  <div class="form-group">
+		  <input type="hidden" class="form-control" id="exampleInputEmail1" placeholder="Nome completo" ng-model="user.id">
+		    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nome completo" ng-model="user.nome">
+		  </div>
+		  <div class="form-group">
+		    <input type="email" class="form-control" id="exampleInputPassword1" placeholder="E-mail" ng-model="user.email">
+		  </div>
+		  <div class="form-group">
+		    <input type="date" class="form-control" id="exampleInputPassword1" placeholder="Data de Nascimento" ng-model="user.nascimento">
+		  </div>
+		  <div class="form-group">
+		    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Nova senha" ng-model="user.senha">
+		  </div>
+		</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Fechar</button>
+        <button type="button" class="btn btn-primary" ng-click="editUser()"> Editar</button>
       </div>
     </div>
   </div>
