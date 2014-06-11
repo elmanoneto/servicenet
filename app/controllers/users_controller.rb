@@ -15,4 +15,13 @@ class UsersController < ApplicationController
 	end
   end
 
+  def create
+  	senha = params[:senha].crypt('aa')
+  	if User.create(nome: params[:nome], email: params[:email], nascimento: params[:nascimento], senha: senha)
+  		respond_to do |format|
+	      format.json { render json: 'Usuário cadastrado' }
+	    end
+	end
+  end
+
 end

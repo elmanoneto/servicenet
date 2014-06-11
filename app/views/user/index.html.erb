@@ -6,7 +6,15 @@
 
 	<div ng-if="users != 0">
 		<h2>Lista de usuários</h2>
-		  <table class="table">
+
+		<form class="form-inline" role="form" id="form-search">
+		  <div class="form-group">
+		    <input type="text" class="form-control" id="inputSuccess4" placeholder="Pesquisar usuário" ng-model="search.nome">
+		    <span class="glyphicon glyphicon-search"></span>
+		  </div>
+		</form>
+
+		<table class="table">
         <thead>
           <tr>
             <th>Matrícula</th>
@@ -19,10 +27,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="user in users">
-            <td>{{user.matricula}}</td>
+          <tr ng-repeat="user in users | filter:search">
+            <td>{{user.id}}</td>
             <td>{{user.nome}}</td>
-            <td>{{user.nascimento}}</td>
+            <td>{{user.nascimento | date:'dd-MM-yyyy'}}</td>
             <td>{{user.email}}</td>
             <td>{{user.senha}}</td>
             <td>
@@ -57,19 +65,19 @@
 		    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nome completo" ng-model="user.nome">
 		  </div>
 		  <div class="form-group">
-		    <input type="email" class="form-control" id="exampleInputPassword1" placeholder="E-mail">
+		    <input type="email" class="form-control" id="exampleInputPassword1" placeholder="E-mail" ng-model="user.email">
 		  </div>
 		  <div class="form-group">
-		    <input type="date" class="form-control" id="exampleInputPassword1" placeholder="Data de Nascimento">
+		    <input type="date" class="form-control" id="exampleInputPassword1" placeholder="Data de Nascimento" ng-model="user.nascimento">
 		  </div>
 		  <div class="form-group">
-		    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha" required>
+		    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha" ng-model="user.senha">
 		  </div>
 		</form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Fechar</button>
-        <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Cadastrar</button>
+        <button type="button" class="btn btn-primary" ng-click="registerUser()"><span class="glyphicon glyphicon-plus"></span> Cadastrar</button>
       </div>
     </div>
   </div>
