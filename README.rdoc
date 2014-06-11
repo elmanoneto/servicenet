@@ -3,13 +3,13 @@
 Para rodar a aplicação é necessário instalar o ruby e o rails.
 
 Depois de baixar o projeto, executar o seguinte comando dentro da pasta do projeto:
-*bundle install*
+<tt>bundle install</tt>
 
 Após isso:
-*rake db:migrate*
+<tt>rake db:migrate</tt>
 
 E por fim,
-*rails server*
+<tt>rails server</tt>
 
 O banco de dados é local com sqlite então não precisa se preocupar.
 
