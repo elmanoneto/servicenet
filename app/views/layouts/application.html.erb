@@ -1,14 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html ng-app='ServiceNet'>
 <head>
   <title>Servicenet</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+  	
+  <%= stylesheet_link_tag '//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css' %>
+  <%= javascript_include_tag '//code.jquery.com/jquery-1.11.0.min.js' %>
+
 </head>
+<style>
+body {
+    margin-top: 60px;
+}
+</style>
 <body>
 
-<%= yield %>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">ServiceNet</a>
+            </div>
+            </div>
+        </div>
+    </nav>
 
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <%= yield %>
+            </div>
+        </div>
+    </div>
+    
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag '//flaviusmatis.github.io/easyModal.js/jquery.easyModal.js' %>
+    
+    
 </body>
 </html>
