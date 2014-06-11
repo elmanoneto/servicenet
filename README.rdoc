@@ -1,28 +1,16 @@
-== README
+== DESAFIO SERVICENET
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Para rodar a aplicação é necessário instalar o ruby e o rails.
 
-Things you may want to cover:
+Depois de baixar o projeto, executar o seguinte comando dentro da pasta do projeto:
+<tt>bundle install</tt>
 
-* Ruby version
+Após isso:
+<tt>rake db:migrate</tt>
 
-* System dependencies
+E por fim,
+<tt>rails server</tt>
 
-* Configuration
+O banco de dados é local com sqlite então não precisa se preocupar.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Qualquer dúvida entra em contato.
